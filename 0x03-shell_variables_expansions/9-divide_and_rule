@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(($POSER/$DIVIDE))
+echo $(($POSER/$DIVIDE)) | cat -e
