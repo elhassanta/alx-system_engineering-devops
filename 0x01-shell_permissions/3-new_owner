@@ -1,2 +1,2 @@
 #!/bin/bash
-su chown school hello
+sudo chown betty hello && sudo chmod u+x hello
