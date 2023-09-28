@@ -2,6 +2,7 @@
 #this script will display info about school file.
 file="./school"
 if [ -e "$file" ]; then
+	echo "school file exists"
 	if [ -s "$file" ]; then
 		echo "school file is not empty"
 	else
