@@ -1,24 +1,7 @@
 #!/usr/bin/env bash
 #this script will display content of a file
-filename="/etc/passwd"
-content="$(cat $filename)"
-IFS=$'\n'
 
-# Create an array by splitting the content by newline
-content_array=($content)
+while read -r passwd; do
+  echo "$passwd" | cut -d ':' -f1,3,6
+done < "/etc/passwd"
 
-start_char=":"
-
-index=0
-
-# Use a while loop to iterate through each line
-while [ $index -lt ${#content_array[@]} ]; do
-	line="${content_array[$index]}"
-	part1=$(echo "$line" | cut -d "$start_char" -f 1)
-	part2=$(echo "$line" | cut -d "$start_char" -f 3)
-	part3=$(echo "$line" | cut -d "$start_char" -f 6)
-	substring="$part1:$part2:$part3"
-	echo "$substring"
-	index=$((index + 1))
-done
-unset IFS
