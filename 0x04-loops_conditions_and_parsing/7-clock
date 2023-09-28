@@ -3,7 +3,7 @@
 hour=0
 i=1
 echo "Hour: $hour"
-while [ $hour -lt 13 ]; do
+while [ $hour -lt 12 ]; do
 	if [ $i -eq 60 ]; then
 		hour=$((hour + 1))
 		i=1
