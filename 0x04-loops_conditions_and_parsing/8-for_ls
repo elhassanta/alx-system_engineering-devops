@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #this file will display file in a directory
 list=$(ls "$PWD")
+start_char="-"
 for i in $list ; do
-	startfrom=2
-	substring="${i:startfrom}"
+	substring="$(echo "$i" | cut -d "$start_char" -f 2-)"
 	echo "$substring"
 done
