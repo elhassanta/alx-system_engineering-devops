@@ -6,6 +6,9 @@ echo "Hour: $hour"
 while [ $hour -lt 13 ]; do
 	if [ $i -eq 60 ]; then
 		hour=$((hour + 1))
+		if [ $hour -eq 13 ]; then
+			break
+		fi
 		i=1
 		echo "Hour: $hour"
 	fi
