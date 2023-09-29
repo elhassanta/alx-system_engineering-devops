@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#this program will display list of running process
+top
