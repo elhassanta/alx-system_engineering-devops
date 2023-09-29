@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 #this script will kill a prgram
-
-kill 4-to_infinity_and_beyond
+myscript_name="4-to_infinity_and_beyond"
+pid=$(pgrep -f "$myscript_name")
+kill $pid
