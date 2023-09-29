@@ -2,4 +2,4 @@
 #this script will kill a prgram
 myscript_name="4-to_infinity_and_beyond"
 pid=$(pgrep -f "$myscript_name")
-kill $pid
+kill "$pid"
