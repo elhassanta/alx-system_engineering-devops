@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#this pregram will sleep 2 between each iteration
+
+while [ 1 = 1 ]; do
+	echo "To infinity and beyond"
+	sleep 2
+done
