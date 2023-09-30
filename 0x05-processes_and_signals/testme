@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#this script will kill a prgram
+myscript_name="100-process_and_pid_file"
+pkill -9 -f "$myscript_name"

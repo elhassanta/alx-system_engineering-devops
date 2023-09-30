@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+#this is a painful script
+myscript_name="100-process_and_pid_file"
+filename="/var/run/myscript.pid"
+touch "$filename"
+pid=$(pgrep -f "$myscript_name")
+echo "$pid" > "$filename"
+custom_handler(){
+	case $1 in
+		SIGTERM)
+			echo "I hate the kill command"
+			rm "$filename"
+			pkill -15 -f "$myscript_name"
+			;;
+		SIGQUIT)
+			rm "$filename"
+			kill -15 "$pid"
+			;;
+		SIGINT)
+			echo "Y U no love me?!"
+			;;
+		*)
+			;;
+	esac
+}
+trap 'custom_handler SIGTERM' SIGTERM
+trap 'custom_handler SIGINT' SIGINT
+trap 'custom_handler SIGQUIT' SIGQUIT
+x=1
+while [ $x = 1 ]; do
+	echo "To infinity and beyond"
+	sleep 2
+done
