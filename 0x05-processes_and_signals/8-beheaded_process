@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#this script will kill a prgram
+myscript_name="7-highlander"
+pkill -9 -f "$myscript_name"
