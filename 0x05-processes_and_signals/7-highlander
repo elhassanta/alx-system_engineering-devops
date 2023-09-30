@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#this pregram will sleep 2 between each iteration
+custom_handler(){
+	echo "I am invincible!!!"
+}
+trap 'custom_handler to handel SIGTERM' SIGTERM
+x=1
+while [ $x = 1 ]; do
+	echo "To infinity and beyond"
+	sleep 2
+done
