@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#this script will display the ip and status code in a log file for a user
+
+awk '{ counts[$1" "$9]++ } END { for (value in counts) print "   ", counts[value], value }' "apache-access.log" | sort -nr
