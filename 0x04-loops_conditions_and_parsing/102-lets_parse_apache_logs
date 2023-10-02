@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#this script will display the ip and status code in a log file for a user
+pwd="$PWD"
+#filename="$($pwd/apache-access.log)"
+awk '{print $1, $9}' "apache-access.log"
