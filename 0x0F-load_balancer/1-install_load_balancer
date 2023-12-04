@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# A script that configures HAproxy in a load balancer 
+apt -y install haproxy
+echo "ENABLED=1" >> /etc/default/haproxy
+echo -e "
+frontend
+        bind 80 ssl crt /etc/ssl/certs/haproxy.pem
+        default_backend web-backend
+        option forwardfor
+
+backend web-backend
+        balance roundrobin
+        server 385253-web-01 3.84.255.16 check
+        server 385253-web-02 54.144.20.225 check
+        " >> /etc/haproxy/haproxy.cfg
+service haproxy restart
