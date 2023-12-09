@@ -1,6 +1,24 @@
 #!/usr/bin/env bash
 # Bash script that will display information about subdomains.
 # Path: alx-system_engineering-devops/0x10-https_ssl/0-world_wide_web
+
 subdomains_list=("www" "lb-01" "web-01" "web-02")
 domain="$1"
 subdomain="$2"
+
+dig_command () {
+    subdomain="$2"
+    INFO="$(dig "$subdomain.$domain" | grep -A1 'ANSWER SECTION:' | awk 'NR==2')"
+    IP=$(echo "$INFO" | awk '{print $5}')
+    RECORD=$(echo "$INFO" | awk '{print $4}')
+
+    echo "The subdomain $subdomain is a $RECORD record and points to $IP"
+}
+
+if [ $# -eq 1 ]; then
+    for sub in "${subdomains_list[@]}"; do
+        dig_command "$domain" "$sub"
+    done
+elif [ $# -eq 2 ]; then
+    dig_command "$domain" "$subdomain"
+fi
