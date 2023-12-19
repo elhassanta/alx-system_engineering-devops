@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Use ssh to connect to a server using the private key: 0-use_a_private_key
-# username: ubuntu
-
-ssh -i ~/.ssh/school ubuntu@f0f0ed98573c.1fa60de7.alx-cod.online
+# A bash script that uses ssh to connect a serve
+# using the private key
+ssh ubuntu@18.204.14.197 -i ~/.ssh/school
