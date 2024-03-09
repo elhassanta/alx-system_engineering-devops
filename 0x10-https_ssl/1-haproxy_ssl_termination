@@ -39,5 +39,5 @@ listen 385252-lb-01
         bind *:443 ssl crt /etc/haproxy/certs/www.hassanairbb.tech.pem
         redirect scheme https code 301 if !{ ssl_fc }
         balance roundrobin
-        server 385252-web-01 34.229.49.127:80 check
-        server 385252-web-02 54.173.120.12:80 check
+        server 385252-web-01 100.25.19.114:80 check
+        server 385252-web-02 54.162.7.157:80 check
